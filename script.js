@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", checkFadeIn);
 
     // --- COUNTDOWN TIMER ---
-    const countdownDate = new Date("July 23, 2026 08:00:00").getTime();
+    const countdownDate = new Date("July 25, 2026 08:00:00").getTime();
 
     const timerInterval = setInterval(() => {
         const now = new Date().getTime();
