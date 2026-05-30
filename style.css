@@ -121,7 +121,7 @@ h1, h2, .subtitle, .footer h2 {
     display: flex;
     justify-content: center;
     align-items: flex-end; /* Memindahkan ke bawah */
-    padding-bottom: 20px; /* Dibuat sangat rendah, nempel ke bawah */
+    padding-bottom: 150px; /* Ditinggikan lebih banyak lagi */
     z-index: 9999;
     text-align: center;
     transition: opacity 1s ease, transform 1s ease;
