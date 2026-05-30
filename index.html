@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Pernikahan: Putri & Bambang</title>
+    <meta name="description" content="Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami.">
+    
+    <!-- Open Graph / WhatsApp Preview -->
+    <meta property="og:title" content="The Wedding of Putri & Bambang">
+    <meta property="og:description" content="Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu.">
+    <meta property="og:image" content="latar.jpeg">
+    <meta property="og:type" content="website">
 
     <!-- Force No Cache -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -11,7 +18,7 @@
     <meta http-equiv="Expires" content="0">
 
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=31">
+    <link rel="stylesheet" href="style.css?v=20260530-2035">
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- AOS Animation CSS -->
@@ -120,7 +127,7 @@
                     <p class="date">23 Juli 2026</p>
                     <p class="time">09:30 WIB - Selesai</p>
                     <p class="location"><strong>KUA Desa Tirtajaya</strong><br>Kec. Bajuin, Kab. Tanah Laut</p>
-                    <a href="https://maps.google.com/?q=KUA+Desa+Tirtajaya+Kec+Bajuin+Kab+Tanah+Laut" target="_blank" class="btn-secondary">Google Maps</a>
+                    <a href="https://maps.app.goo.gl/Mi6WzZumNxGeLzRi7" target="_blank" class="btn-secondary">Google Maps</a>
                 </div>
                 <div class="card" data-aos="flip-right" data-aos-duration="1500" data-aos-delay="200">
                     <i class="fa-solid fa-glass-cheers card-icon"></i>
@@ -128,7 +135,7 @@
                     <p class="date">25 Juli 2026</p>
                     <p class="time">08:00 WIB - Selesai</p>
                     <p class="location"><strong>Kediaman Mempelai Wanita</strong><br>Jln tirta jaya rt 6 rw 2 desa ketapang kec bajuin pelaihari</p>
-                    <a href="https://maps.google.com/?q=Jln+tirta+jaya+rt+6+rw+2+desa+ketapang+kec+bajuin+pelaihari" target="_blank" class="btn-secondary">Google Maps</a>
+                    <a href="https://maps.app.goo.gl/Mi6WzZumNxGeLzRi7" target="_blank" class="btn-secondary">Google Maps</a>
                 </div>
             </div>
         </section>
@@ -158,25 +165,26 @@
 
         <!-- RSVP Section -->
         <section class="rsvp-section">
-            <h2 class="section-title" data-aos="fade-up">Konfirmasi Kehadiran</h2>
-            <p class="rsvp-text" data-aos="fade-up" data-aos-delay="200">Mohon konfirmasi kehadiran Bapak/Ibu/Saudara/i melalui formulir di bawah ini:</p>
+            <h2 class="section-title" data-aos="fade-up">Konfirmasi Kehadiran & Ucapan</h2>
+            <p class="rsvp-text" data-aos="fade-up" data-aos-delay="200">Mohon konfirmasi kehadiran dan berikan doa restu Anda melalui formulir di bawah ini:</p>
             <form id="rsvp-form" class="rsvp-form" data-aos="zoom-in-up" data-aos-duration="1000">
                 <input type="text" id="rsvp-name" placeholder="Nama Anda" required>
                 <input type="number" id="rsvp-amount" placeholder="Jumlah Orang" min="1" max="10" required>
                 <select id="rsvp-status" required>
                     <option value="" disabled selected>Apakah Anda akan hadir?</option>
-                    <option value="Hadir">Ya, Saya Hadir</option>
-                    <option value="Tidak Hadir">Maaf, Tidak Bisa Hadir</option>
+                    <option value="Hadir">✅ Ya, Saya Hadir</option>
+                    <option value="Tidak Hadir">❌ Maaf, Tidak Bisa Hadir</option>
                 </select>
-                <button type="submit" class="btn-primary">Kirim Konfirmasi</button>
+                <textarea id="rsvp-msg" placeholder="Tulis ucapan dan doa Anda untuk kedua mempelai..." required style="width: 100%; padding: 12px; border: 1px solid var(--gray-light); border-radius: 8px; font-family: var(--font-body); margin-bottom: 15px; resize: vertical; min-height: 100px;"></textarea>
+                <button type="submit" id="btn-submit-rsvp" class="btn-primary">Kirim Konfirmasi & Ucapan</button>
             </form>
         </section>
 
         <!-- Guestbook Section -->
         <section class="guestbook-section">
             <h2 class="section-title" data-aos="fade-up">Ucapan & Doa</h2>
-            <div class="guestbook-container" data-aos="fade-up" data-aos-delay="200">
-                <!-- Ucapan dari tamu akan muncul di sini (Butuh backend/database untuk berfungsi) -->
+            <div id="wish-list-container" class="guestbook-container" data-aos="fade-up" data-aos-delay="200" style="max-height: 400px; overflow-y: auto; text-align: left; padding: 15px; background: rgba(255,255,255,0.5); border-radius: 12px;">
+                <p style="text-align:center; color:#888;">Memuat daftar ucapan...</p>
             </div>
         </section>
 
@@ -230,6 +238,6 @@
             offset: 50
         });
     </script>
-    <script src="script.js?v=31"></script>
+    <script src="script.js?v=20260530-2035"></script>
 </body>
 </html>

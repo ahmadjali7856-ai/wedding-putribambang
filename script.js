@@ -101,34 +101,58 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
     }, 1000);
 
-    // --- RSVP FORM TO WHATSAPP ---
+    // --- UCAPAN / RSVP (Google Sheets) ---
     const rsvpForm = document.getElementById("rsvp-form");
-    
-    rsvpForm.addEventListener("submit", function(e) {
-        e.preventDefault(); // Mencegah reload halaman
-        
-        const name = document.getElementById("rsvp-name").value;
-        const amount = document.getElementById("rsvp-amount").value;
-        const status = document.getElementById("rsvp-status").value;
-        
-        // Nomor WhatsApp tujuan (Format: 628xxxx) - Silakan diganti nanti
-        const waNumber = "6281234567890"; 
-        
-        let message = `Halo, saya *${name}* ingin mengkonfirmasi undangan pernikahan Putri & Bambang.%0A%0A`;
-        message += `Kehadiran: *${status}*%0A`;
-        if (status === "Hadir") {
-            message += `Jumlah: *${amount} Orang*%0A%0A`;
-            message += `Terima kasih dan sampai jumpa di hari bahagia!`;
-        } else {
-            message += `Mohon maaf tidak bisa hadir, semoga acaranya lancar ya!`;
-        }
-        
-        const waLink = `https://wa.me/${waNumber}?text=${message}`;
-        window.open(waLink, '_blank');
-        
-        // Reset form
-        rsvpForm.reset();
-    });
+    if (rsvpForm) {
+        rsvpForm.addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById("rsvp-name").value.trim();
+            const rawStatus = document.getElementById("rsvp-status").value;
+            const message = document.getElementById("rsvp-msg").value.trim();
+            
+            // Map status
+            let attendance = "hadir";
+            if (rawStatus === "Tidak Hadir") attendance = "tidak";
+            else if (rawStatus === "Ragu") attendance = "ragu";
+            
+            if (!name || !message) {
+                alert('Mohon isi nama dan ucapan Anda.');
+                return;
+            }
+
+            const wish = {
+                name,
+                attendance,
+                message: message + " #PB#",
+                time: new Date().toLocaleString('id-ID', { dateStyle: 'medium', timeStyle: 'short' })
+            };
+
+            const submitBtn = document.getElementById("btn-submit-rsvp");
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '⏳ Mengirim...';
+            submitBtn.disabled = true;
+
+            fetch("https://script.google.com/macros/s/AKfycbzv3J1B50r85zxfjJXYXEPYkraWPlHcqt72T1Sk-NqaJDcyVq72yJOrEOHwCja8EkPKQQ/exec", {
+                method: 'POST',
+                body: JSON.stringify(wish)
+            }).then(() => {
+                alert('Terima kasih! Pesan dan konfirmasi kehadiran Anda telah berhasil dikirim.');
+                rsvpForm.reset();
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+                loadWishes();
+            }).catch(err => {
+                console.error(err);
+                alert('Maaf, terjadi kesalahan saat mengirim pesan.');
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            });
+        });
+    }
+
+    // Load initial wishes
+    loadWishes();
 
     // --- PAUSE MUSIC WHEN TAB IS HIDDEN ---
     document.addEventListener("visibilitychange", () => {
@@ -156,4 +180,55 @@ function copyRekening(elementId) {
     document.body.removeChild(tempInput);
     
     alert("Nomor Rekening berhasil disalin: " + textToCopy);
+}
+
+// --- LOAD WISHES ---
+function loadWishes() {
+    const container = document.getElementById('wish-list-container');
+    if (!container) return;
+    
+    container.innerHTML = '<p style="text-align:center; color:#888;">Memuat daftar ucapan...</p>';
+
+    fetch("https://script.google.com/macros/s/AKfycbzv3J1B50r85zxfjJXYXEPYkraWPlHcqt72T1Sk-NqaJDcyVq72yJOrEOHwCja8EkPKQQ/exec")
+    .then(res => res.json())
+    .then(wishes => {
+        // Filter only Putri & Bambang wishes
+        const filtered = wishes.filter(w => {
+            const msg  = (w.message || '').toLowerCase().trim();
+            return msg.includes('#pb#');
+        });
+
+        if (filtered.length === 0) {
+            container.innerHTML = '<p style="text-align:center; color:#888;">Belum ada ucapan.</p>';
+            return;
+        }
+
+        container.innerHTML = filtered.reverse().map(wish => {
+            let badgeColor = wish.attendance === 'hadir' ? '#28a745' : wish.attendance === 'tidak' ? '#dc3545' : '#ffc107';
+            let badgeText  = wish.attendance === 'hadir' ? 'Hadir'  : wish.attendance === 'tidak' ? 'Tidak Hadir' : 'Ragu';
+            
+            // Remove the #PB# tag for display
+            let displayMessage = wish.message.replace(/#PB#/gi, '').trim();
+            
+            return `
+                <div style="background: rgba(255,255,255,0.8); backdrop-filter: blur(5px); padding: 15px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 15px; border-left: 5px solid var(--pink-dark);">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+                        <h4 style="color: var(--text-dark); margin: 0; font-size: 1.1rem;">${escapeHtml(wish.name)}</h4>
+                        <span style="font-size: 0.75rem; background: ${badgeColor}; color: white; padding: 3px 8px; border-radius: 10px;">${badgeText}</span>
+                    </div>
+                    <p style="font-size: 0.8rem; color: #888; margin-bottom: 8px; border-bottom: 1px dashed #ddd; padding-bottom: 5px;">${wish.time}</p>
+                    <p style="font-size: 0.95rem; color: #444; line-height: 1.5; font-style: italic;">"${escapeHtml(displayMessage)}"</p>
+                </div>
+            `;
+        }).join('');
+    }).catch(err => {
+        console.error(err);
+        container.innerHTML = '<p style="text-align:center; color:red;">Gagal memuat ucapan dari server.</p>';
+    });
+}
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
 }

@@ -374,6 +374,10 @@ section {
 .person {
     flex: 1;
     min-width: 250px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .photo-placeholder {
@@ -570,6 +574,7 @@ section {
     width: 100%;
     height: 220px;
     object-fit: cover;
+    object-position: top center;
     border: 1px solid #eee;
 }
 
@@ -901,39 +906,53 @@ section {
     /* Mempelai Atas Bawah (Stacked Vertically) di Tengah on mobile */
     .couple-container {
         flex-direction: column;
+        align-items: center;
         gap: 20px;
+        width: 100%;
     }
     .person {
         width: 100%;
+        max-width: 340px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: center;
+        margin: 0 auto;
     }
     .photo-placeholder {
         width: 200px;
         height: 200px;
         border-width: 4px;
         outline-offset: 4px;
-        margin-bottom: 20px;
+        margin: 0 auto 20px auto;
     }
     .photo-placeholder::before {
         width: 100px;
         height: 38px;
         bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
     }
     .person h3 {
         font-size: 1.8rem;
+        text-align: center;
+        width: 100%;
     }
     .person p {
         font-size: 0.9rem;
+        text-align: center;
+        width: 100%;
     }
     .and-symbol { 
         font-size: 3rem; 
-        margin: 10px 0; 
+        margin: 10px auto; 
+        text-align: center;
+        display: block;
     }
     .ig-link {
         font-size: 0.85rem;
         padding: 5px 12px;
+        margin: 0 auto;
     }
     
     .timeline::before {
