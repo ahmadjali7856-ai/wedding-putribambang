@@ -120,7 +120,8 @@ h1, h2, .subtitle, .footer h2 {
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end; /* Memindahkan ke bawah */
+    padding-bottom: 40px; /* Jarak dari bawah layar */
     z-index: 9999;
     text-align: center;
     transition: opacity 1s ease, transform 1s ease;
@@ -128,12 +129,12 @@ h1, h2, .subtitle, .footer h2 {
 
 .cover-content {
     background: rgba(255, 255, 255, 0.95);
-    padding: 50px 30px;
+    padding: 35px 20px; /* Sedikit dikurangi padding atas bawahnya agar proporsional */
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(212, 122, 143, 0.2);
     border: 2px solid var(--pink-dark);
-    max-width: 90%;
-    width: 400px;
+    max-width: 500px; /* Diperlebar */
+    width: 92%; /* Agar melebar penuh di HP */
 }
 
 .cover-content .subtitle {
