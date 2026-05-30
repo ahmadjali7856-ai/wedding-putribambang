@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan: Putri & Bambang</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2.0">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Falling Petals -->
+    <div class="petals-container">
+        <div class="petal" style="left: 10%; animation-delay: 0s, 0s;"></div>
+        <div class="petal" style="left: 20%; animation-delay: 2s, 1s;"></div>
+        <div class="petal" style="left: 30%; animation-delay: 4s, 2s;"></div>
+        <div class="petal" style="left: 40%; animation-delay: 1s, 3s;"></div>
+        <div class="petal" style="left: 50%; animation-delay: 3s, 0s;"></div>
+        <div class="petal" style="left: 60%; animation-delay: 5s, 1s;"></div>
+        <div class="petal" style="left: 70%; animation-delay: 2s, 2s;"></div>
+        <div class="petal" style="left: 80%; animation-delay: 6s, 3s;"></div>
+        <div class="petal" style="left: 90%; animation-delay: 1s, 0s;"></div>
+    </div>
+
+    <!-- Cover Overlay -->
+    <div id="cover-screen" class="cover-screen">
+        <div class="cover-content" data-aos="zoom-in" data-aos-duration="2000">
+            <p class="subtitle">The Wedding of</p>
+            <h1 class="title-name">Putri & Bambang</h1>
+            <p class="guest-label">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+            <h3 class="guest-name">Tamu Undangan</h3>
+            <button id="btn-open" class="btn-primary"><i class="fa-solid fa-envelope-open-text"></i> Buka Undangan</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content" class="hidden">
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-overlay" data-aos="fade-up" data-aos-duration="1500">
+                <p class="subtitle">Pernikahan dari</p>
+                <h1 class="hero-title">Putri & Bambang</h1>
+                <p class="hero-date">23 Juli 2026</p>
+            </div>
+        </section>
+
+        <!-- Quotes Section -->
+        <section class="quotes-section" data-aos="fade-up" data-aos-duration="1500">
+            <i class="fa-solid fa-heart heart-icon" data-aos="zoom-in" data-aos-delay="300"></i>
+            <p class="quote-text" data-aos="fade-right" data-aos-delay="500">
+                "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang."
+            </p>
+            <p class="quote-source" data-aos="fade-left" data-aos-delay="700">(QS. Ar-Rum: 21)</p>
+        </section>
+
+        <!-- Invitation Text Section -->
+        <section class="invitation-text-section" style="padding: 20px 20px 0px;" data-aos="zoom-in-up" data-aos-duration="1500">
+            <div class="glass-card">
+                <i class="fa-solid fa-envelope-open-text" style="font-size: 2.5rem; color: var(--pink-dark); margin-bottom: 15px;"></i>
+                <p style="font-size: 2.5rem; font-family: 'Great Vibes', cursive; color: var(--pink-dark); margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(255,255,255,0.8);">Bismillahirrahmanirrahim</p>
+                <p style="font-size: 1.1rem; line-height: 1.9; color: var(--denim-dark); font-weight: 600;">
+                    <em>Assalamu'alaikum Warahmatullahi Wabarakatuh</em><br><br>
+                    Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud menyelenggarakan acara pernikahan putra-putri kami:
+                </p>
+            </div>
+        </section>
+
+        <!-- Couple Section -->
+        <section class="couple-section">
+            <h2 class="section-title" data-aos="zoom-in-down">Mempelai</h2>
+            <div class="couple-container">
+                <div class="person" data-aos="flip-left" data-aos-duration="2000">
+                    <div class="photo-placeholder bride-photo"></div>
+                    <h3 data-aos="fade-up" data-aos-delay="500">Putri Islamiyah Agustin</h3>
+                    <p data-aos="fade-up" data-aos-delay="700">Putri dari Bapak Rudiansyah & Ibu Rina Wiratmaya Ningtyas</p>
+                    <a href="https://instagram.com/ptriisyh" target="_blank" class="ig-link" data-aos="fade-up" data-aos-delay="800"><i class="fa-brands fa-instagram"></i> @ptriisyh</a>
+                </div>
+                <div class="and-symbol" data-aos="zoom-in" data-aos-delay="1000">&</div>
+                <div class="person" data-aos="flip-right" data-aos-duration="2000">
+                    <div class="photo-placeholder groom-photo"></div>
+                    <h3 data-aos="fade-up" data-aos-delay="500">Bambang Hermanto</h3>
+                    <p data-aos="fade-up" data-aos-delay="700">Putra dari Bapak Suwoto & Ibu Sumini</p>
+                    <a href="https://instagram.com/2nd.bambang" target="_blank" class="ig-link" data-aos="fade-up" data-aos-delay="800"><i class="fa-brands fa-instagram"></i> @2nd.bambang</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section (Polaroid Style) -->
+        <section class="gallery-section">
+            <h2 class="section-title" data-aos="fade-down">Galeri Bahagia</h2>
+            <div class="polaroid-container">
+                <div class="polaroid p-1" data-aos="zoom-out-right" data-aos-delay="100"><img src="putri.jpeg" alt="Gallery 1"></div>
+                <div class="polaroid p-2" data-aos="zoom-out-down" data-aos-delay="200"><img src="latar.jpeg" alt="Gallery 2"></div>
+                <div class="polaroid p-3" data-aos="zoom-out-left" data-aos-delay="300"><img src="bambang.jpeg" alt="Gallery 3"></div>
+                <div class="polaroid p-4" data-aos="zoom-out-right" data-aos-delay="400"><img src="IMG_7269.JPG.jpeg" alt="Gallery 4"></div>
+                <div class="polaroid p-5" data-aos="zoom-out-down" data-aos-delay="500"><img src="IMG_7272.JPG.jpeg" alt="Gallery 5"></div>
+                <div class="polaroid p-6" data-aos="zoom-out-left" data-aos-delay="600"><img src="IMG_7291.JPG.jpeg" alt="Gallery 6"></div>
+                <div class="polaroid p-7" data-aos="zoom-out-right" data-aos-delay="700"><img src="IMG_7295.JPG.jpeg" alt="Gallery 7"></div>
+                <div class="polaroid p-8" data-aos="zoom-out-left" data-aos-delay="800"><img src="IMG_7297.JPG.jpeg" alt="Gallery 8"></div>
+            </div>
+        </section>
+
+        <!-- Event Section -->
+        <section class="event-section">
+            <h2 class="section-title" data-aos="fade-up">Detail Acara</h2>
+            <div class="event-cards">
+                <div class="card" data-aos="flip-left" data-aos-duration="1500">
+                    <i class="fa-solid fa-ring card-icon"></i>
+                    <h3>Akad Nikah</h3>
+                    <p class="date">23 Juli 2026</p>
+                    <p class="time">09:30 WIB - Selesai</p>
+                    <p class="location"><strong>Kediaman Mempelai Wanita</strong><br>Jln tirta jaya rt 6 rw 2 desa ketapang kec bajuin pelaihari</p>
+                    <a href="https://maps.google.com/?q=Jln+tirta+jaya+rt+6+rw+2+desa+ketapang+kec+bajuin+pelaihari" target="_blank" class="btn-secondary">Google Maps</a>
+                </div>
+                <div class="card" data-aos="flip-right" data-aos-duration="1500" data-aos-delay="200">
+                    <i class="fa-solid fa-glass-cheers card-icon"></i>
+                    <h3>Resepsi</h3>
+                    <p class="date">25 Juli 2026</p>
+                    <p class="time">08:00 WIB - Selesai</p>
+                    <p class="location"><strong>Kediaman Mempelai Wanita</strong><br>Jln tirta jaya rt 6 rw 2 desa ketapang kec bajuin pelaihari</p>
+                    <a href="https://maps.google.com/?q=Jln+tirta+jaya+rt+6+rw+2+desa+ketapang+kec+bajuin+pelaihari" target="_blank" class="btn-secondary">Google Maps</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Restu Section -->
+        <section class="restu-section" style="padding: 40px 20px;" data-aos="zoom-in" data-aos-duration="1500">
+            <div class="glass-card">
+                <i class="fa-solid fa-hands-praying" style="font-size: 2.5rem; color: var(--pink-dark); margin-bottom: 20px;"></i>
+                <p style="font-size: 1.1rem; line-height: 1.9; color: var(--denim-dark); font-weight: 600;">
+                    Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai.<br><br>
+                    Atas kehadiran dan doa restunya, kami ucapkan terima kasih.<br><br>
+                    <em>Wassalamu'alaikum Warahmatullahi Wabarakatuh</em>
+                </p>
+            </div>
+        </section>
+
+        <!-- Countdown Section -->
+        <section class="countdown-section">
+            <h2 class="section-title" data-aos="fade-down">Menuju Hari Bahagia</h2>
+            <div id="countdown" class="countdown-container" data-aos="fade-up" data-aos-duration="1500">
+                <div class="time-box"><span id="days">00</span><p>Hari</p></div>
+                <div class="time-box"><span id="hours">00</span><p>Jam</p></div>
+                <div class="time-box"><span id="minutes">00</span><p>Menit</p></div>
+                <div class="time-box"><span id="seconds">00</span><p>Detik</p></div>
+            </div>
+        </section>
+
+        <!-- RSVP Section -->
+        <section class="rsvp-section">
+            <h2 class="section-title" data-aos="fade-up">Konfirmasi Kehadiran</h2>
+            <p class="rsvp-text" data-aos="fade-up" data-aos-delay="200">Mohon konfirmasi kehadiran Bapak/Ibu/Saudara/i melalui formulir di bawah ini:</p>
+            <form id="rsvp-form" class="rsvp-form" data-aos="zoom-in-up" data-aos-duration="1000">
+                <input type="text" id="rsvp-name" placeholder="Nama Anda" required>
+                <input type="number" id="rsvp-amount" placeholder="Jumlah Orang" min="1" max="10" required>
+                <select id="rsvp-status" required>
+                    <option value="" disabled selected>Apakah Anda akan hadir?</option>
+                    <option value="Hadir">Ya, Saya Hadir</option>
+                    <option value="Tidak Hadir">Maaf, Tidak Bisa Hadir</option>
+                </select>
+                <button type="submit" class="btn-primary">Kirim Konfirmasi</button>
+            </form>
+        </section>
+
+        <!-- Guestbook Section -->
+        <section class="guestbook-section">
+            <h2 class="section-title" data-aos="fade-up">Ucapan & Doa</h2>
+            <div class="guestbook-container" data-aos="fade-up" data-aos-delay="200">
+                <!-- Ucapan dari tamu akan muncul di sini (Butuh backend/database untuk berfungsi) -->
+            </div>
+        </section>
+
+        <!-- Digital Gift Section -->
+        <section class="gift-section">
+            <h2 class="section-title" data-aos="fade-up">Amplop Digital</h2>
+            <p class="gift-text" data-aos="fade-up" data-aos-delay="200">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun, jika Anda ingin memberikan tanda kasih, dapat melalui fitur di bawah ini:</p>
+            <div class="bank-card" data-aos="fade-right" data-aos-duration="1500">
+                <h3>Bank Mandiri</h3>
+                <p class="account-number" id="rek-bambang">310020815729</p>
+                <p>a.n Bambang Hermanto</p>
+                <button class="btn-copy" onclick="copyRekening('rek-bambang')"><i class="fa-regular fa-copy"></i> Salin Rekening</button>
+            </div>
+            <div class="bank-card" style="margin-top: 20px;" data-aos="fade-left" data-aos-duration="1500">
+                <h3>DANA</h3>
+                <p class="account-number" id="rek-putri">0882021173455</p>
+                <p>a.n Putri Islamiyah Agustin</p>
+                <button class="btn-copy" onclick="copyRekening('rek-putri')"><i class="fa-regular fa-copy"></i> Salin Nomor</button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer" data-aos="fade-in" data-aos-duration="2000">
+            <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami.</p>
+            <h2>Putri & Bambang</h2>
+            <div class="watermark" style="margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-family: var(--font-body);">
+                <p style="font-size: 0.8rem; opacity: 0.7; margin-bottom: 5px; color: white;">Ingin membuat undangan digital elegan seperti ini?</p>
+                <p style="margin-bottom: 12px; font-size: 0.95rem; color: white;">Dibuat dengan ❤️ oleh <strong style="color: var(--gold);">AL_DIGITAL</strong></p>
+                <a href="https://wa.me/6285822798967" target="_blank" class="promo-btn"><i class="fa-brands fa-whatsapp"></i> Pesan Sekarang (+62 858-2279-8967)</a>
+            </div>
+        </footer>
+
+        <!-- Audio Player (Hidden) -->
+        <audio id="bg-music" loop>
+            <source src="ssstik.io_1779798473825.mp3" type="audio/mpeg">
+        </audio>
+
+        <!-- Music Control -->
+        <button id="btn-music" class="btn-music playing">
+            <i class="fa-solid fa-compact-disc spin-icon"></i>
+        </button>
+
+    </main>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            once: false,
+            mirror: true,
+            offset: 50
+        });
+    </script>
+    <script src="script.js?v=2.0"></script>
+</body>
+</html>
